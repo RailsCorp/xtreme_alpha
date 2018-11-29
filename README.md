@@ -1,4 +1,6 @@
-# README
+# Xtreme
+
+[![codecov](https://codecov.io/gh/RailsCorp/xtreme_alpha/branch/master/graph/badge.svg)](https://codecov.io/gh/RailsCorp/xtreme_alpha)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
