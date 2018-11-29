@@ -1,0 +1,24 @@
+language: ruby
+rvm:
+- 2.5.1
+env:
+  global:
+  - CODECOV_TOKEN: 91f1bbb6-fee9-4f9f-8e72-5d1ebf3e5a2d
+  - DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
+services:
+- mysql
+- redis-server
+before_script:
+- cp -f .env.example .env
+- cp -f config/database.travis.yml config/database.yml
+- bundle install
+script:
+- bundle exec rails db:create RAILS_ENV=test
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec --color --require spec_helper --format progress spec
+- bundle exec rails_best_practices .
+- bundle exec rubocop
+after_failure:
+- mysql -e 'show databases;'
+- cat ./log/test.log
+- echo $RAILS_ENV
