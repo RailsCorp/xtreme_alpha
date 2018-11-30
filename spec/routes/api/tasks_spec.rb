@@ -9,14 +9,14 @@ describe "Tasks Routing", type: :routing do
   end
 
   it "PUT update action" do
-    expect(put: "api/tasks/1").to route_to(action: "update" ,controller: "api/tasks", id: "1")
+    expect(put: "api/tasks/1").to route_to(action: "update", controller: "api/tasks", id: "1")
   end
 
   it "DELETE destroy action" do
-    expect(delete: "api/tasks/1").to route_to(action: "destroy" ,controller: "api/tasks", id: "1")
+    expect(delete: "api/tasks/1").to route_to(action: "destroy", controller: "api/tasks", id: "1")
   end
 
   it "GET show action" do
-    expect(get: "api/tasks/1").to route_to(action: "show" ,controller: "api/tasks", id: "1")
+    expect(get: "api/tasks/1").to route_to(action: "show", controller: "api/tasks", id: "1")
   end
 end
