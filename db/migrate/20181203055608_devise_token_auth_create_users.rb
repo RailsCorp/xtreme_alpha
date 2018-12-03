@@ -39,7 +39,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
 
       ## Tokens
-      t.string :tokens, index: true
+      t.json :tokens, null: false
 
       t.timestamps
     end
