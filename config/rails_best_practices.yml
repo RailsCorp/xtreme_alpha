@@ -8,7 +8,7 @@ DryBundlerInCapistranoCheck: { }
 IsolateSeedDataCheck: { }
 KeepFindersOnTheirOwnModelCheck: { }
 LawOfDemeterCheck: { }
-#LongLineCheck: { max_line_length: 80 }
+LongLineCheck: { max_line_length: 150, ignored_files: ['db/migrate', 'config/initializers', 'spec', 'app/controllers'] }
 MoveCodeIntoControllerCheck: { }
 MoveCodeIntoHelperCheck: { array_count: 3 }
 MoveCodeIntoModelCheck: { use_count: 2 }
@@ -22,8 +22,8 @@ OveruseRouteCustomizationsCheck: { customize_count: 3 }
 ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
-RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: [] }
+#RemoveTrailingWhitespaceCheck: { }
+#RemoveUnusedMethodsInControllersCheck: { except_methods: [sign_up_params, account_update_params] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
