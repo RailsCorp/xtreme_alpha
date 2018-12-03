@@ -1,0 +1,4 @@
+ja:
+  models:
+    messages:
+      success_task_logs: "タスクお疲れ様でした"

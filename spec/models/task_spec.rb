@@ -17,5 +17,7 @@ RSpec.describe Task, type: :model do
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
 
     it { should have_db_index(:title) }
+
+    it { is_expected.to have_many(:success_task_logs).dependent(:destroy) }
   end
 end
