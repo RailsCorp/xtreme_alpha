@@ -1,7 +1,7 @@
 module Api
   module Tasks
     class UpdateUsecase
-      def initialize(params , task)
+      def initialize(params, task)
         @params = params
         @task = task
       end
@@ -10,7 +10,7 @@ module Api
         if @params[:is_finished] == "true"
           success_task_log = SuccessTaskLog.new(task_id: @task.id, title: @task.title)
           success_task_log.save!
-          return { is_finished: true, message: I18n.t("models.messages.success_task_logs") }
+          { is_finished: true, message: I18n.t("models.messages.success_task_logs") }
         else
           update_usecase
         end
