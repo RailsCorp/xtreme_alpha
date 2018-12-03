@@ -24,3 +24,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* Docker内に入るコマンド
+
+```
+$ docker exec -it xtreme_server bash
+```
