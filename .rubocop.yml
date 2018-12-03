@@ -396,6 +396,7 @@ Metrics/LineLength:
   Max: 250
   Exclude:
     - "db/migrate/*.rb"
+    - "spec/**/*"
 
 # 20 行超えるのは migration ファイル以外滅多に無い
 Metrics/MethodLength:
