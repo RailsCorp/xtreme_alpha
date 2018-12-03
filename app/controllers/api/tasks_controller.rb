@@ -19,9 +19,12 @@ module Api
     end
 
     def update
-      if @task.update(task_params)
-        @task = Api::TaskDecorator.decorate(@task)
+      @task = Api::Tasks::UpdateUsecase.new(task_params, @task).execute
+
+      if @task[:is_finished] == false
         render :show, json: @task, status: :ok
+      elsif @task[:is_finished] == true
+        render json: @task, status: :ok
       else
         render json: @task.errors.full_messages, status: :unprocessable_entity
       end
