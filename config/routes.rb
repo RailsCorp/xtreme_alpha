@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :api, defaults: { format: :json } do
+  namespace :api do
     mount_devise_token_auth_for "User", at: "auth", controllers: {
-      registrations: "api/auth/registrations"
+      registrations: "api/auth/registrations", format: :json
     }
-    resources :tasks, only: %i[index create destroy update show]
+    resources :users, only: %i[show] do
+      resources :tasks, only: %i[index create destroy update show]
+    end
   end
 end
