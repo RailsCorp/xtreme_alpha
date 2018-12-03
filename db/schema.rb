@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_182156) do
+ActiveRecord::Schema.define(version: 2018_12_02_150041) do
+
+  create_table "success_task_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_success_task_logs_on_task_id"
+    t.index ["title"], name: "index_success_task_logs_on_title"
+  end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -22,4 +31,5 @@ ActiveRecord::Schema.define(version: 2018_11_29_182156) do
     t.index ["title"], name: "index_tasks_on_title"
   end
 
+  add_foreign_key "success_task_logs", "tasks"
 end
