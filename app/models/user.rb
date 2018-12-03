@@ -22,6 +22,6 @@ class User < ActiveRecord::Base
   validates :reset_password_token, uniqueness: true
 
   def tokens_has_json_column_type?
-    database_exists? && table_exists? && self.type_for_attribute('tokens').type.in?([:json, :jsonb])
+    database_exists? && table_exists? && self.type_for_attribute("tokens").type.in?(%i[json jsonb])
   end
 end

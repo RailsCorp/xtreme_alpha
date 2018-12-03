@@ -16,7 +16,7 @@ module Api
           :reset_password_token
         )
       end
- 
+
       def account_update_params
         params.permit(
           :name,

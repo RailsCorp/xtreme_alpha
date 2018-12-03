@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-
   valid_emails = %w[
     user@foo.COM
     A_US-ER@f.b.org

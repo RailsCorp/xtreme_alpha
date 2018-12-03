@@ -15,7 +15,7 @@ FactoryBot.define do
     current_sign_in_at { Faker::Time.between(2.days.ago, 1.days.ago, :all) }
     current_sign_in_ip { "192.168.11.1" }
     last_sign_in_ip { "192.168.11.1" }
-    tokens { { "QoPAmjgdUK7P7dlmycIpKw": { "token"=> "$2a$10$HEKti/Mzj38PcFVTvxi8zeSmfyJx32.5GXmNwE2.SD/teGM.ceSqS", "expiry"=> 1545049553, "last_token"=>"$2a$10$Ogrkui0Sh/Oj26axElT/8.J40mkmJ0BZEV4BYt4sHuhQveyEeBEqi", "updated_at"=>"2018-12-03T21:25:53.253+09:00" } } }
+    tokens { { "QoPAmjgdUK7P7dlmycIpKw": { "token" => "$2a$10$HEKti/Mzj38PcFVTvxi8zeSmfyJx32.5GXmNwE2.SD/teGM.ceSqS", "expiry" => 1_545_049_553, "last_token" => "$2a$10$Ogrkui0Sh/Oj26axElT/8.J40mkmJ0BZEV4BYt4sHuhQveyEeBEqi", "updated_at" => "2018-12-03T21:25:53.253+09:00" } } }
     created_at { Faker::Time.between(5.days.ago, 3.days.ago, :all) }
     updated_at { Faker::Time.between(2.days.ago, 1.days.ago, :all) }
   end
