@@ -1,5 +1,6 @@
 module Api
   class TasksController < ApplicationController
+    before_action :set_user
     before_action :set_task, only: %i[update destroy show]
 
     def index
@@ -42,6 +43,10 @@ module Api
 
     private
 
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+
     def set_task
       @task = Task.find(params[:id])
     end
@@ -54,6 +59,8 @@ module Api
           :content,
           :is_finished,
           :deadline
+        ).merge(
+          user_id: @user.id
         )
     end
   end
