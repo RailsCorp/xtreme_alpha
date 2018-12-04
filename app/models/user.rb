@@ -21,7 +21,4 @@ class User < ActiveRecord::Base
   validates :allow_password_change, inclusion: { in: [true, false] }
   validates :reset_password_token, uniqueness: true
 
-  def tokens_has_json_column_type?
-    database_exists? && table_exists? && self.type_for_attribute("tokens").type.in?(%i[json jsonb])
-  end
 end
