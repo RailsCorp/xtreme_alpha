@@ -3,22 +3,33 @@ rvm:
 - 2.5.1
 env:
   global:
-  - CODECOV_TOKEN: 91f1bbb6-fee9-4f9f-8e72-5d1ebf3e5a2d
-  - DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
+    - CODECOV_TOKEN: 91f1bbb6-fee9-4f9f-8e72-5d1ebf3e5a2d
+    - DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
 services:
-- mysql
-- redis-server
+  - redis-server
+  - mysql
+sudo: true
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
 before_script:
-- cp -f .env.example .env
-- cp -f config/database.travis.yml config/database.yml
-- bundle install
+  - cp -f .env.example .env
+  - cp -f config/database.travis.yml config/database.yml
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('gonzo') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+  - sudo mysql_upgrade -u root -p gonzo
+  - sudo service mysql restart
+  - bundle install
 script:
-- bundle exec rails db:create RAILS_ENV=test
-- bundle exec rails db:migrate RAILS_ENV=test
-- bundle exec rspec --color --require spec_helper --format progress spec
-- bundle exec rails_best_practices .
-- bundle exec rubocop
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec --color --require spec_helper --format progress spec
+  - bundle exec rails_best_practices .
+  - bundle exec rubocop
 after_failure:
-- mysql -e 'show databases;'
-- cat ./log/test.log
-- echo $RAILS_ENV
+  - mysql -e 'show databases;'
+  - cat ./log/test.log
+  - echo $RAILS_ENV
