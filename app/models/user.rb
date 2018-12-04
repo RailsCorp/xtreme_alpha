@@ -20,5 +20,4 @@ class User < ActiveRecord::Base
   validates :sign_in_count, presence: true, numericality: { only_integer: true }
   validates :allow_password_change, inclusion: { in: [true, false] }
   validates :reset_password_token, uniqueness: true
-
 end
