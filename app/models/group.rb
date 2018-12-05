@@ -4,6 +4,8 @@ class Group < ApplicationRecord
 
   has_many :members, dependent: :destroy
   has_many :users, through: :members
+  has_one :info_group, dependent: :destroy
+  has_one :information, through: :info_group
   has_one_attached :image
 
   validates :name, presence: true
