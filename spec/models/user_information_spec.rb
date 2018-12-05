@@ -23,6 +23,6 @@ RSpec.describe UserInformation, type: :model do
 
   context "association" do
     subject { create(:user_information) }
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:information) }
   end
 end

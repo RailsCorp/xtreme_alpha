@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Information, type: :model do
   context "validation" do
@@ -14,5 +14,8 @@ RSpec.describe Information, type: :model do
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
 
     it { should have_db_index(:info_type) }
+
+    it { is_expected.to have_one(:info_user) }
+    it { is_expected.to have_one(:user).through(:info_user) }
   end
 end

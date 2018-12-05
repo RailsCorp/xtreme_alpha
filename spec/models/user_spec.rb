@@ -56,8 +56,10 @@ RSpec.describe User, type: :model do
   context "association" do
     subject { create(:user) }
     it { is_expected.to have_many(:tasks).dependent(:destroy) }
-    it { is_expected.to have_one(:user_information).dependent(:destroy) }
     it { is_expected.to have_many(:members).dependent(:destroy) }
     it { is_expected.to have_many(:groups).through(:members) }
+
+    it { is_expected.to have_one(:info_user).dependent(:destroy) }
+    it { is_expected.to have_one(:information).through(:info_user) }
   end
 end
