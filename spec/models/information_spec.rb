@@ -15,7 +15,9 @@ RSpec.describe Information, type: :model do
 
     it { should have_db_index(:info_type) }
 
-    it { is_expected.to have_one(:info_user) }
+    it { is_expected.to have_one(:info_user).dependent(:destroy) }
     it { is_expected.to have_one(:user).through(:info_user) }
+    it { is_expected.to have_one(:info_group).dependent(:destroy) }
+    it { is_expected.to have_one(:group).through(:info_group) }
   end
 end
