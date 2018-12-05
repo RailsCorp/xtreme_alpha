@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :tasks, dependent: :destroy
+  has_many :members, dependent: :destroy
+  has_many :groups, through: :members
   has_one :user_information, dependent: :destroy
 
   validates :provider, presence: true

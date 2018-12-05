@@ -21,8 +21,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:uid) }
     it { is_expected.to validate_presence_of(:password) }
 
-    it { is_expected.to validate_inclusion_of(:allow_password_change).in_array([true, false]) }
-
     it { is_expected.to validate_numericality_of(:sign_in_count).only_integer }
 
     it { is_expected.to validate_length_of(:password).is_at_least(6) }
@@ -59,5 +57,7 @@ RSpec.describe User, type: :model do
     subject { create(:user) }
     it { is_expected.to have_many(:tasks).dependent(:destroy) }
     it { is_expected.to have_one(:user_information).dependent(:destroy) }
+    it { is_expected.to have_many(:members).dependent(:destroy) }
+    it { is_expected.to have_many(:groups).through(:members) }
   end
 end

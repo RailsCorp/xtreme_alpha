@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     resources :users, only: %i[show] do
       resources :tasks, only: %i[index create destroy update show]
     end
+
+    resources :groups, only: %i[show create update destroy] do
+      resources :tasks, only: %i[index create destroy update show]
+    end
   end
 end

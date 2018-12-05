@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -31,6 +30,7 @@ module XtremeAlpha
 
     config.generators do |g|
       # 色々な記述があるので、一番下に追記する
+      g.orm :active_record
       g.test_framework :rspec,
                        fixtures: true,
                        view_specs: false,
