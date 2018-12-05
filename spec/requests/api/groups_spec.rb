@@ -33,7 +33,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     end
 
     it "#create action" do
-      user = create(:user)
+      create(:user)
       expect do
         post api_groups_path, params: params, headers: auth_headers
       end.to change(
