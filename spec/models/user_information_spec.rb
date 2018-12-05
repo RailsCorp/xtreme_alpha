@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe UserInformation, type: :model do
-
   valid_phone_numbers = %w[
     09039999999
     0325694406
