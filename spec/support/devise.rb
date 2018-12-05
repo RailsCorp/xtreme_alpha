@@ -1,22 +1,10 @@
+require "rspec/rails"
 module Devise
-  include Warden::Test::Helpers
-
-  def self.included(base)
-    base.before(:each) { Warden.test_mode! }
-    base.after(:each) { Warden.test_reset! }
-  end
-
-  def log_in(resource)
-    login_as(resource, scope: warden_scope(resource))
-  end
-
-  def log_out(resource)
-    logout(warden_scope(resource))
-  end
-
-  private
-
-  def warden_scope(resource)
-    resource.class.name.underscore.to_sym
+  def auth_headers
+    {
+      "access-token": "lhG-DTB64dyOlv1e-6BAiQ",
+      "client": "RqCpylnDWcDUQVntAbpyDw",
+      "uid": "admin1@example.com"
+    }
   end
 end
