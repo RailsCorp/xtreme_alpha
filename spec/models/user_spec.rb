@@ -21,8 +21,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:uid) }
     it { is_expected.to validate_presence_of(:password) }
 
-    it { is_expected.to validate_inclusion_of(:allow_password_change).in_array([true, false]) }
-
     it { is_expected.to validate_numericality_of(:sign_in_count).only_integer }
 
     it { is_expected.to validate_length_of(:password).is_at_least(6) }
