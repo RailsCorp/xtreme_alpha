@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Tasks Controller Requests", type: :request do
-  let(:image) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/images/test.jpg')) }
+  let(:image) { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/images/test.jpg")) }
   let(:params) {
     {
       groups: {
@@ -21,7 +21,6 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     }
   }
   describe "success" do
-  
     it "#show action" do
       user = create(:user)
       @group = create(:group)
@@ -32,7 +31,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       body = JSON.parse(response.body)
       expect(body["name"]).to eq("MyString")
     end
-  
+
     it "#create action" do
       user = create(:user)
       expect do
@@ -46,7 +45,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       expect(body["name"]).to eq("test1")
       expect(body["group_type"]).to eq("students")
     end
-  
+
     it "#update action" do
       user = create(:user)
       @group = create(:group)
@@ -60,7 +59,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       expect(body["name"]).to eq("test2")
       expect(body["group_type"]).to eq("companies")
     end
-  
+
     it "#destroy action" do
       user = create(:user)
       @group = create(:group)

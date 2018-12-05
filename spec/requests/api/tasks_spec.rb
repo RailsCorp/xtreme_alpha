@@ -31,7 +31,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json")
     end
-  
+
     it "#show action" do
       @task = create(:task, user_id: @user.id)
       get api_user_task_path(@user, @task), headers: auth_headers
@@ -41,13 +41,13 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       expect(body["deadline"].class).to eq(String)
       expect(body["is_finished"]).to eq false
     end
-  
+
     it "#create action" do
       post api_user_tasks_path(@user), params: params, headers: auth_headers
       expect(response).to have_http_status(201)
       expect(response.content_type).to eq("application/json")
     end
-  
+
     it "#update action" do
       @task = create(:task, user_id: @user.id)
       expect do
@@ -61,7 +61,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       expect(body["is_finished"]).to eq true
       expect(body["message"]).to eq "タスクお疲れ様でした"
     end
-  
+
     it "#update action2" do
       @task = create(:task, user_id: @user.id)
       expect do
@@ -74,7 +74,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
       body = JSON.parse(response.body)
       expect(body["content"]).to eq "test2"
     end
-  
+
     it "#destroy action" do
       @task = create(:task, user_id: @user.id)
       delete api_user_task_path(@user, @task), headers: auth_headers
