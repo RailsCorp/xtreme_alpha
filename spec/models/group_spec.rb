@@ -19,5 +19,7 @@ RSpec.describe Group, type: :model do
 
     it { is_expected.to have_many(:members).dependent(:destroy) }
     it { is_expected.to have_many(:users).through(:members) }
+    it { is_expected.to have_one(:info_group).dependent(:destroy) }
+    it { is_expected.to have_one(:information).through(:info_group) }
   end
 end

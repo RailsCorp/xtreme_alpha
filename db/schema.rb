@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_102248) do
+ActiveRecord::Schema.define(version: 2018_12_05_195649) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -39,6 +39,31 @@ ActiveRecord::Schema.define(version: 2018_12_05_102248) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_groups_on_name"
+  end
+
+  create_table "info_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "information_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_info_groups_on_group_id"
+    t.index ["information_id"], name: "index_info_groups_on_information_id"
+  end
+
+  create_table "info_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "information_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["information_id"], name: "index_info_users_on_information_id"
+    t.index ["user_id"], name: "index_info_users_on_user_id"
+  end
+
+  create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "info_type", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["info_type"], name: "index_information_on_info_type"
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,13 +97,13 @@ ActiveRecord::Schema.define(version: 2018_12_05_102248) do
   end
 
   create_table "user_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "information_id", null: false
     t.string "introduce"
     t.integer "sex", default: 0
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_informations_on_user_id"
+    t.index ["information_id"], name: "index_user_informations_on_information_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,9 +129,13 @@ ActiveRecord::Schema.define(version: 2018_12_05_102248) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "info_groups", "groups"
+  add_foreign_key "info_groups", "information"
+  add_foreign_key "info_users", "information"
+  add_foreign_key "info_users", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
   add_foreign_key "success_task_logs", "tasks"
   add_foreign_key "tasks", "users"
-  add_foreign_key "user_informations", "users"
+  add_foreign_key "user_informations", "information"
 end
