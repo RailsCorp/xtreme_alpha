@@ -7,5 +7,5 @@ class Group < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
-  # validates :group_type, presence: true, numericality: true
+  validates :group_type, presence: true
 end
