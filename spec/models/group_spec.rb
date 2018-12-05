@@ -17,7 +17,7 @@ RSpec.describe Group, type: :model do
 
     it { should have_db_index(:name) }
 
-    # it { is_expected.to have_many(:success_task_logs).dependent(:destroy) }
-    # it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:members).dependent(:destroy) }
+    it { is_expected.to have_many(:users).through(:members) }
   end
 end
