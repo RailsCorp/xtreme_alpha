@@ -90,3 +90,23 @@ app/
 
 
 `csrf対策`はまだ未定。今後に導入。
+
+### devise_token_auth
+
+devise_token_authは、headerに`"access-token"`、`"client"`、`uid`を乗せてリクエスト送る。
+
+```
+{
+  "access-token": "lhG-DTB64dyOlv1e-6BAiQ",
+  "client": "RqCpylnDWcDUQVntAbpyDw",
+  "uid": "admin1@example.com"
+}
+```
+
+使えるメソッド
+
+```
+1. api_user_signed_in?
+2. before_action :authenticate_api_user!
+3. current_api_user
+```
