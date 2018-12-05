@@ -4,7 +4,6 @@ RSpec.describe Task, type: :model do
   context "validation" do
     subject { create(:task) }
     it { is_expected.to validate_presence_of(:title) }
-    it { is_expected.to validate_inclusion_of(:is_finished).in_array([true, false]) }
   end
 
   context "db" do
