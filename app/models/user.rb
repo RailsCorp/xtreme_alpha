@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :groups, through: :members
-  has_one :user_information, dependent: :destroy
+  has_one :info_user, dependent: :destroy
+  has_one :information, through: :info_user
 
   validates :provider, presence: true
   validates :uid, presence: true
