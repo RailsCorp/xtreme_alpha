@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_133603) do
+ActiveRecord::Schema.define(version: 2018_12_06_180232) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 2018_12_06_133603) do
     t.index ["title"], name: "index_success_task_logs_on_title"
   end
 
+  create_table "task_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_task_groups_on_group_id"
+    t.index ["task_id"], name: "index_task_groups_on_task_id"
+  end
+
   create_table "task_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
@@ -143,6 +152,8 @@ ActiveRecord::Schema.define(version: 2018_12_06_133603) do
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
   add_foreign_key "success_task_logs", "tasks"
+  add_foreign_key "task_groups", "groups"
+  add_foreign_key "task_groups", "tasks"
   add_foreign_key "task_users", "tasks"
   add_foreign_key "task_users", "users"
   add_foreign_key "user_informations", "information"
