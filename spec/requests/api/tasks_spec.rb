@@ -33,7 +33,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     end
 
     it "#show action" do
-      @task = create(:task, user_id: @user.id)
+      @task = create(:task)
       get api_user_task_path(@user, @task), headers: auth_headers
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json")
@@ -49,7 +49,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     end
 
     it "#update action" do
-      @task = create(:task, user_id: @user.id)
+      @task = create(:task)
       expect do
         put api_user_task_path(@user, @task), params: params, headers: auth_headers
       end.to change(
@@ -63,7 +63,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     end
 
     it "#update action2" do
-      @task = create(:task, user_id: @user.id)
+      @task = create(:task)
       expect do
         put api_user_task_path(@user, @task), params: params1, headers: auth_headers
       end.to change(
@@ -76,7 +76,7 @@ RSpec.describe "Tasks Controller Requests", type: :request do
     end
 
     it "#destroy action" do
-      @task = create(:task, user_id: @user.id)
+      @task = create(:task)
       delete api_user_task_path(@user, @task), headers: auth_headers
       expect(response).to have_http_status(200)
       expect(response.content_type).to eq("application/json")
