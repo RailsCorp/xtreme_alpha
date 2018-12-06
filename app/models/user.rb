@@ -11,11 +11,12 @@ class User < ActiveRecord::Base
          :validatable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :tasks, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :groups, through: :members
   has_one :info_user, dependent: :destroy
   has_one :information, through: :info_user
+  has_many :task_users, dependent: :destroy
+  has_many :tasks, through: :task_users
 
   validates :provider, presence: true
   validates :uid, presence: true

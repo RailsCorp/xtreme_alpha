@@ -59,8 +59,6 @@ module Api
           :content,
           :is_finished,
           :deadline
-        ).merge(
-          user_id: @user.id
         )
     end
   end
