@@ -18,6 +18,7 @@ RSpec.describe Task, type: :model do
     it { should have_db_index(:title) }
 
     it { is_expected.to have_many(:success_task_logs).dependent(:destroy) }
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:task_users).dependent(:destroy) }
+    it { is_expected.to have_many(:users).through(:task_users) }
   end
 end
