@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :task do
-    association :user, factory: :user
     title { "test_title" }
     content { "testです" }
     is_finished { false }
