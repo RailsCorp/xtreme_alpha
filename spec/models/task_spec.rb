@@ -20,5 +20,8 @@ RSpec.describe Task, type: :model do
     it { is_expected.to have_many(:success_task_logs).dependent(:destroy) }
     it { is_expected.to have_many(:task_users).dependent(:destroy) }
     it { is_expected.to have_many(:users).through(:task_users) }
+    it { is_expected.to have_many(:task_groups).dependent(:destroy) }
+    it { is_expected.to have_many(:groups).through(:task_groups) }
+    
   end
 end
