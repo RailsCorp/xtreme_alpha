@@ -110,3 +110,16 @@ devise_token_authは、headerに`"access-token"`、`"client"`、`uid`を乗せ�
 2. before_action :authenticate_api_user!
 3. current_api_user
 ```
+
+### PostmanからUserオブジェクトを作るときに
+
+```
+{
+	"name": "hogehoge1",
+	"email": "hogehoge1@hoge.com",
+	"password": "hogehoge1",
+	"password_confirmation": "hogehoge1",
+	"reset_password_token": "hoegehoge1",
+	"uid": "hogehoge1@hoge.com"
+}
+```
