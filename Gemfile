@@ -38,6 +38,8 @@ gem "google-analytics-rails"
 gem "hirb"
 gem "http"
 gem "i18n_generators"
+gem "i18n-country-translations"
+gem "i18n-timezones"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "json"
@@ -65,6 +67,7 @@ gem "redis-rails"
 gem "rmagick"
 gem "sidekiq"
 gem "sidekiq-failures"
+gem "sidekiq-unique-jobs"
 gem "slack-api"
 gem "slack-notifier"
 gem "therubyracer"
@@ -78,6 +81,7 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "faker"
+  gem "mongoid-rspec"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rails-controller-testing"
@@ -85,6 +89,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "shoulda-matchers"
+  gem "test-queue"
 end
 
 group :test do
