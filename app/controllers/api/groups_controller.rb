@@ -47,18 +47,5 @@ module Api
           :image
         )
     end
-
-    def if_user_joined_group?
-      groups = []
-      current_api_user.members.map do |member|
-        Rails.logger.debug "member.groups.where(id: params[:id]) : #{member.group}"
-        groups.push member.group
-      end
-
-      if groups.blank?
-        # errorメッセージを後々,i18nで作成
-        render json: { text: "このグループに入ってください！" }, status: :unprocessable_entity
-      end
-    end
   end
 end

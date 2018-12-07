@@ -23,6 +23,10 @@ module Api
           :email
         )
       end
+
+      def authenticate_api_user!
+        false
+      end
     end
   end
 end
