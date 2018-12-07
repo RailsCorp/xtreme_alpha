@@ -69,8 +69,6 @@ RSpec.describe "Tasks Controller Requests", type: :request do
 
     it "#destroy action" do
       @team = create(:team, group_id: @group.id)
-      puts @team
-      puts @team.id
       expect do
         delete api_group_team_path(@group, @team), headers: auth_headers
       end.to change(
