@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_180232) do
+ActiveRecord::Schema.define(version: 2018_12_07_151720) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(version: 2018_12_06_180232) do
     t.index ["title"], name: "index_tasks_on_title"
   end
 
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.string "name", null: false
+    t.string "introduce"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_teams_on_group_id"
+    t.index ["name"], name: "index_teams_on_name"
+  end
+
   create_table "user_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "information_id", null: false
     t.string "introduce"
@@ -156,5 +166,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_180232) do
   add_foreign_key "task_groups", "tasks"
   add_foreign_key "task_users", "tasks"
   add_foreign_key "task_users", "users"
+  add_foreign_key "teams", "groups"
   add_foreign_key "user_informations", "information"
 end
