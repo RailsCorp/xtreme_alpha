@@ -9,6 +9,7 @@ require "faker"
 require "line/bot"
 require "simplecov"
 require "codecov"
+require "database_rewinder"
 OmniAuth.config.test_mode = true
 
 SimpleCov.start
@@ -32,6 +33,16 @@ RSpec.configure do |config|
   # carrierwaveでできたファイルを削除
   config.after(:all) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"]) if Rails.env.test?
+  end
+
+  config.before(:suite) do
+    DatabaseRewinder.clean_all multiple: false
+    # or
+    # DatabaseRewinder.clean_with :any_arg_that_would_be_actually_ignored_anyway
+  end
+
+  config.after(:each) do
+    DatabaseRewinder.clean multiple: false
   end
 
   SimpleCov.start
