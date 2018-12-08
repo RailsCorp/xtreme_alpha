@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 
-ENV['RAILS_ENV'] ||= "test"
-require File.expand_path("../../config/environment", __FILE__)
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
 
 require "test_queue"
 require "test_queue/runner/rspec"
 
 class RSpecTestQueueRunner < TestQueue::Runner::RSpec
   def after_fork(num)
-    ENV.update('TEST_ENV_NUMBER' => num.to_s)
+    ENV.update("TEST_ENV_NUMBER" => num.to_s)
 
-    ActiveRecord::Base.configurations['test']['database'] << num.to_s
+    ActiveRecord::Base.configurations["test"]["database"] << num.to_s
     ActiveRecord::Base.establish_connection(:test)
 
     ActiveRecord::Tasks::DatabaseTasks.drop_current
@@ -21,7 +21,7 @@ class RSpecTestQueueRunner < TestQueue::Runner::RSpec
   end
 
   def summarize
-    estatus = @completed.inject(0){ |s, worker| s + worker.status.exitstatus }
+    estatus = @completed.inject(0) { |s, worker| s + worker.status.exitstatus }
     estatus = 255 if estatus > 255
     exit(estatus)
   end
