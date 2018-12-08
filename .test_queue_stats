@@ -1,0 +1,27 @@
+{:versioni:suites[ {	:	nameI"../spec/models/success_task_log_spec.rb[1]:ET:	pathI"6/home/server/spec/models/success_task_log_spec.rb;T:durationf1.449993:last_seen_atl+d«\{	;I"'./spec/routes/api/users_spec.rb[1];T;	I"//home/server/spec/routes/api/users_spec.rb;T;
+f0.2865488;l+i«\{	;I""./spec/models/user_spec.rb[1];T;	I"*/home/server/spec/models/user_spec.rb;T;
+f3.8766448;l+h«\{	;I"'./spec/models/task_user_spec.rb[1];T;	I"//home/server/spec/models/task_user_spec.rb;T;
+f2.8860722;l+e«\{	;I"../spec/models/user_information_spec.rb[1];T;	I"6/home/server/spec/models/user_information_spec.rb;T;
+f0.275187;l+h«\{	;I"$./spec/models/member_spec.rb[1];T;	I",/home/server/spec/models/member_spec.rb;T;
+f2.401316;l+i«\{	;I")./spec/models/information_spec.rb[1];T;	I"1/home/server/spec/models/information_spec.rb;T;
+f0.8095803;l+h«\{	;I"#./spec/models/group_spec.rb[1];T;	I"+/home/server/spec/models/group_spec.rb;T;
+f1.2970028;l+i«\{	;I"(./spec/models/task_group_spec.rb[1];T;	I"0/home/server/spec/models/task_group_spec.rb;T;
+f2.1148799;l+d«\{	;I"-./spec/routes/devise/sessions_spec.rb[1];T;	I"5/home/server/spec/routes/devise/sessions_spec.rb;T;
+f0.0956697;l+i«\{	;I"'./spec/routes/api/teams_spec.rb[1];T;	I"//home/server/spec/routes/api/teams_spec.rb;T;
+f0.0991896;l+i«\{	;I"'./spec/routes/api/tasks_spec.rb[1];T;	I"//home/server/spec/routes/api/tasks_spec.rb;T;
+f0.1961047;l+i«\{	;I")./spec/requests/api/teams_spec.rb[1];T;	I"1/home/server/spec/requests/api/teams_spec.rb;T;
+f4.7711143;l+i«\{	;I"4./spec/decorators/api/user_decorator_spec.rb[1];T;	I"</home/server/spec/decorators/api/user_decorator_spec.rb;T;
+f0.0001419;l+i«\{	;I"4./spec/decorators/api/team_decorator_spec.rb[1];T;	I"</home/server/spec/decorators/api/team_decorator_spec.rb;T;
+f0.0001719;l+i«\{	;I"4./spec/decorators/api/task_decorator_spec.rb[1];T;	I"</home/server/spec/decorators/api/task_decorator_spec.rb;T;
+f0.0001626;l+i«\{	;I"5./spec/decorators/api/group_decorator_spec.rb[1];T;	I"=/home/server/spec/decorators/api/group_decorator_spec.rb;T;
+f0.000132;l+i«\{	;I"A./spec/decorators/api/auth/registration_decorator_spec.rb[1];T;	I"I/home/server/spec/decorators/api/auth/registration_decorator_spec.rb;T;
+f0.0001298;l+i«\{	;I""./spec/models/team_spec.rb[1];T;	I"*/home/server/spec/models/team_spec.rb;T;
+f1.8825903;l+e«\{	;I"2./spec/routes/devise/registrstions_spec.rb[1];T;	I":/home/server/spec/routes/devise/registrstions_spec.rb;T;
+f0.3971964;l+i«\{	;I")./spec/requests/api/tasks_spec.rb[1];T;	I"1/home/server/spec/requests/api/tasks_spec.rb;T;
+f1.9327256;l+g«\{	;I"'./spec/models/info_user_spec.rb[1];T;	I"//home/server/spec/models/info_user_spec.rb;T;
+f1.9654374;l+g«\{	;I""./spec/models/task_spec.rb[1];T;	I"*/home/server/spec/models/task_spec.rb;T;
+f1.5938674;l+d«\{	;I"../spec/routes/devise/passwords_spec.rb[1];T;	I"6/home/server/spec/routes/devise/passwords_spec.rb;T;
+f0.212814;l+i«\{	;I"(./spec/routes/api/groups_spec.rb[1];T;	I"0/home/server/spec/routes/api/groups_spec.rb;T;
+f0.1326744;l+i«\{	;I"*./spec/requests/api/groups_spec.rb[1];T;	I"2/home/server/spec/requests/api/groups_spec.rb;T;
+f2.9693319;l+g«\{	;I"(./spec/models/info_group_spec.rb[1];T;	I"0/home/server/spec/models/info_group_spec.rb;T;
+f1.2865891;l+h«\
