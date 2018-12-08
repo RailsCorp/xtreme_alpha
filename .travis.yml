@@ -28,8 +28,7 @@ script:
   - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rails_best_practices .
   - bundle exec rubocop
-  - bin/rspec-testqueue --exclude-pattern "spec/serial_only/**/*_spec.rb" --color --require spec_helper --format progress spec/
-  - bundle exec rspec spec/mongo/.
+  - time TEST_QUEUE_WORKERS=5 bin/rspec-testqueue --color --require spec_helper --format progress spec/.
 after_failure:
   - mysql -e 'show databases;'
   - cat ./log/test.log
