@@ -25,6 +25,7 @@ RSpec.describe Message, type: :model do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:team) }
     it { is_expected.to have_one(:message_text).dependent(:destroy) }
+    it { is_expected.to have_one(:message_file).dependent(:destroy) }
     it { is_expected.to have_one(:message_image).dependent(:destroy) }
   end
 end
