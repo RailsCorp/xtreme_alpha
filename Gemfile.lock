@@ -167,6 +167,7 @@ GEM
     connection_pool (2.2.2)
     crass (1.0.4)
     database_cleaner (1.7.0)
+    database_rewinder (0.9.0)
     debug_inspector (0.0.3)
     deep_merge (1.2.1)
     descendants_tracker (0.0.4)
@@ -651,6 +652,7 @@ DEPENDENCIES
   codecov
   config
   database_cleaner
+  database_rewinder
   devise
   devise_invitable
   devise_token_auth
