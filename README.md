@@ -123,3 +123,12 @@ devise_token_authは、headerに`"access-token"`、`"client"`、`uid`を乗せ�
 	"uid": "hogehoge1@hoge.com"
 }
 ```
+
+`mongodbを使用していないrspec`
+```
+$ bin/rspec-test-queue.rb --exclude-pattern "spec/mongo/**/*_spec.rb" spec/
+```
+
+```
+$ bundle exec rspec spec/mongo/.
+```
