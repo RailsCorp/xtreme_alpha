@@ -1,0 +1,8 @@
+class Message < ApplicationRecord
+  belongs_to :user
+  belongs_to :team
+  enum message_type: %i[text image file]
+  validates :user_id, presence: true
+  validates :team_id, presence: true
+  validates :message_type, presence: true
+end

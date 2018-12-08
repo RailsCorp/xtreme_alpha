@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_151720) do
+ActiveRecord::Schema.define(version: 2018_12_08_174604) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -73,6 +73,18 @@ ActiveRecord::Schema.define(version: 2018_12_07_151720) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_members_on_group_id"
     t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "message_type", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_type"], name: "index_messages_on_message_type"
+    t.index ["team_id"], name: "index_messages_on_team_id"
+    t.index ["user_id", "team_id", "message_type"], name: "message_in_teams_index"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "success_task_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -161,6 +173,8 @@ ActiveRecord::Schema.define(version: 2018_12_07_151720) do
   add_foreign_key "info_users", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+  add_foreign_key "messages", "teams"
+  add_foreign_key "messages", "users"
   add_foreign_key "success_task_logs", "tasks"
   add_foreign_key "task_groups", "groups"
   add_foreign_key "task_groups", "tasks"
