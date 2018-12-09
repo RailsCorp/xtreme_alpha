@@ -53,7 +53,9 @@ module Api
     end
 
     def if_user_joined_group?
-      false
+      if Rails.env != "production"
+        false
+      end
     end
   end
 end
