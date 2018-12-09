@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
     resources :groups, only: %i[show create update destroy] do
       resources :tasks, only: %i[index create destroy update show]
-      resources :teams, only: %i[index create destroy update show]
+      resources :teams, only: %i[index create destroy update show] do
+        resources :messages, only: %i[index create destroy]
+      end
     end
   end
 end
