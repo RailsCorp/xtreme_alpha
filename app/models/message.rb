@@ -11,7 +11,7 @@ class Message < ApplicationRecord
   validates :team_id, presence: true
   validates :message_type, presence: true
 
-  scope :with_message_text, -> { joins(:message_text) }
-  scope :with_message_image, -> { joins(:message_image) }
-  scope :with_message_file, -> { joins(:message_file) }
+  # scope :with_message_text, -> { joins(:message_text) }
+  # scope :with_message_image, -> { joins(:message_image) }
+  # scope :with_message_file, -> { joins(:message_file) }
 end
