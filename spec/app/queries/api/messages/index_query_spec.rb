@@ -6,9 +6,9 @@ describe Api::Messages::IndexQuery do
     it "MessageText Success" do
       user = create(:user)
       group = create(:group)
-      memeber = create(:member, user_id: user.id, group_id: group.id)
+      create(:member, user_id: user.id, group_id: group.id)
       team = create(:team, group_id: group.id)
-      3.times do |time|
+      3.times do |_time|
         message = create(:message, team_id: team.id, user_id: user.id, message_type: "text")
         create(:message_text, message_id: message.id, text: "hello")
       end
@@ -20,9 +20,9 @@ describe Api::Messages::IndexQuery do
     it "MessageImage" do
       user = create(:user)
       group = create(:group)
-      memeber = create(:member, user_id: user.id, group_id: group.id)
+      create(:member, user_id: user.id, group_id: group.id)
       team = create(:team, group_id: group.id)
-      3.times do |time|
+      3.times do |_time|
         message = create(:message, team_id: team.id, user_id: user.id, message_type: "image")
         create(:message_image, message_id: message.id, image: image)
       end
