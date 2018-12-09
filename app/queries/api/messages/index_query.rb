@@ -7,16 +7,12 @@ module Api
 
       def execute
         team = Team.find(@team_id)
-        messages = team
-                    .includes(:group)
-                    .messages
-                      .where(created_at >= (Time.zone.now - 3.months))
-                      .with_message_text
-                      .with_message_image
-                      .with_message_file
-                      .order("created_at ASC")
+        messages =
+          team
+            .messages
+              .order(:created_at)
 
-        Api::MessagesDecorator.decorate_collection(messages)
+        Api::MessageDecorator.decorate_collection(messages)
       end
     end
   end
