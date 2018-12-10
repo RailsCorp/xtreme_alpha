@@ -3,15 +3,27 @@ module Api
     delegate_all
 
     def text
-      self.message_text.text
+      if self.message_text.present?
+        self.message_text.text
+      else
+        nil
+      end
     end
 
     def image
-      self.message_image.image
+      if self.message_image.present?
+        self.message_image.image
+      else
+        nil
+      end
     end
 
     def file
-      self.message_file.file
+      if self.message_file.present?
+        self.message_file.file
+      else
+        nil
+      end
     end
   end
 end
