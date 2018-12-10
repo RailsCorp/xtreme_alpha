@@ -1,19 +1,19 @@
 module Api
   module Messages
-    class CreateUSecase
-      def initialize(params, team_id, group_id)
+    class CreateUsecase
+      def initialize(params, team_id, user_id)
         @params = params
-        @team = Team.find(team_id)
-        @group = Group.find(group_id)
+        @team_id = team_id
+        @user_id = user_id
       end
 
       def execute
         message = Message.create!(
           message_type: @params[:message_type],
-          team_id: @team.id,
-          group_id: @group.id
+          team_id: @team_id,
+          user_id: @user_id
         )
-
+        
         case message.message_type
         when "text"
           MessageText.create!(
@@ -23,7 +23,7 @@ module Api
         when "image"
           MessageImage.create!(
             message_id: message.id,
-            file: @params[:value][:image]
+            image: @params[:value][:image]
           )
         when "file"
           MessageFile.create!(
@@ -31,7 +31,7 @@ module Api
             file: @params[:value][:file]
           )
         else
-          { error: I18n.t("errors.messages.not_found_type") }
+          return { error: I18n.t("errors.messages.not_found_type") }
         end
         # notify_workerを作る。 Messages::NotifyWorker
 
