@@ -14,7 +14,7 @@ module Api
     def create
       # 本当はsidekiqで非同期処理にして全ての端末に対してpush_messageしたい。
       @message = Api::Messages::CreateUsecase
-                    .new(message_params, @team.id, @group.id)
+                    .new(message_params, @team.id, curret_api_user.id)
                     .execute
 
       render :show, formats: :json, status: :ok

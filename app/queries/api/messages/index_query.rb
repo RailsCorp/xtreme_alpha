@@ -10,6 +10,7 @@ module Api
         messages =
           team
             .messages
+              .where("created_at >= ?", DateTime.now - 3.months)
               .order(:created_at)
 
         Api::MessageDecorator.decorate_collection(messages)
