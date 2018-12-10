@@ -11,7 +11,7 @@ describe Api::Messages::CreateUsecase do
       }
     }
   }
-  
+
   let(:image_params) {
     {
       message_type: "image",
@@ -57,7 +57,7 @@ describe Api::Messages::CreateUsecase do
       ).by(1).and change(
         MessageImage, :count
       ).by(1)
-      
+
       expect(@message.image.filename).to eq("test.jpg")
       expect(@message.image.name).to eq("image")
     end
@@ -70,7 +70,7 @@ describe Api::Messages::CreateUsecase do
       ).by(1).and change(
         MessageFile, :count
       ).by(1)
-      
+
       expect(@message.file.filename).to eq("test.pdf")
       expect(@message.file.name).to eq("file")
     end

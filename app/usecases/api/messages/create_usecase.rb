@@ -13,7 +13,7 @@ module Api
           team_id: @team_id,
           user_id: @user_id
         )
-        
+
         case message.message_type
         when "text"
           MessageText.create!(
