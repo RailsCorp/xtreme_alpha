@@ -28,6 +28,11 @@ module XtremeAlpha
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "*.{rb,yml}").to_s]
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
 
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Flash
+
     config.generators do |g|
       # 色々な記述があるので、一番下に追記する
       g.orm :active_record
